@@ -1,0 +1,29 @@
+{% extends 'wiki/base.html' %}
+{%block title%}Delete{% endblock %}
+{% block content %}
+
+<br>
+
+</div>
+<div class = "row">
+    <div class = "col-md-3"></div>
+    <div class = "col-md-6 text-center">
+        <div class = "card card-body border-0">
+
+            <p>Delete {{ entry.title }}?</p>
+
+            <form  method = "POST">
+                {% csrf_token %}
+                    <a  class = "btn btn-warning" href = "{% url 'wikipage' entry.id %}">
+                        Cancel
+                    </a>
+                
+                    <input class = "btn btn-danger" value = "Confirm" type = "submit" name = "Confirm">
+                    
+                </form>
+        </div>
+    </div>
+    <div class = "col-md-3"></div>
+</div>
+
+{% endblock %}

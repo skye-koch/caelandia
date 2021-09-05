@@ -1,0 +1,62 @@
+{% extends "wiki/base.html" %}
+
+
+{% block content %}
+    {% if searched %}
+
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-4">
+                <br>
+                <u>Title matches for {{searched}}</u>
+                <br>
+                <ul style="list-style-type:none;">
+                    {% for entry in entriesTitle %}
+                        <li>
+                            <a href = "{% url 'wikipage' entry.id %}" class = "link-dark">{{entry}} </a>
+                        </li>
+                    {% endfor%}
+                </ul>
+            </div>
+        
+
+            <div class = "col-sm">
+                <br>
+                <u>Body matches for {{searched}}</u>
+                <br>
+                <ul style="list-style-type:none;">
+                    {% for entry in entriesBody %}
+                        <li>
+                            <a href = "{% url 'wikipage' entry.id %} ">{{entry}} </a>
+                        </li>
+                    {% endfor%}
+                </ul>
+            </div>
+        
+
+            <div class = "col-4">
+                <br>
+                <u>Source matches for {{searched}}</u>
+                <br>
+                <ul style="list-style-type:none;">
+                    {% for entry in entriesSource %}
+                        <li>
+                            <a href = "{% url 'wikipage' entry.id %} ">{{entry}} </a>
+                        </li>
+                    {% endfor%}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    {% else %}
+     <br>   
+        <p>
+            No search terms entered.
+        </p>
+
+    {% endif %}
+
+
+{% endblock %}

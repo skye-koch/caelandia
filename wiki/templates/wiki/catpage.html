@@ -1,0 +1,20 @@
+{% extends "wiki/base.html" %}
+
+{%block title%}Categories{% endblock %}
+
+{% block content %}
+<main class = "container">
+    <br>
+    {% for entry in entries %}
+
+        <div class = "card mt-1" style = "border:none">
+            <div class = "card-title">
+                {{ entry.title }}
+                <div class = "card-body">
+                    {{ entry.body|truncatechars_html:300|safe }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</main>
+{% endblock %} 
