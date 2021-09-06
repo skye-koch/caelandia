@@ -9,7 +9,7 @@
 
         <div class = "card mt-1" style = "border:none">
             <div class = "card-title">
-                {{ entry.title }}
+                <a href = "{% url 'wikipage' entry.id %} ">{{ entry.title }}</a>
                 <div class = "card-body">
                     {{ entry.body|truncatechars_html:300|safe }}
                 </div>
